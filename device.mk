@@ -6,6 +6,22 @@
 #
 
 LOCAL_PATH := device/motorola/devonf
+
+# vendor_boot as recovery
+ifeq ($(OF_VENDOR_BOOT_RECOVERY),1)
+
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/recovery/root/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
+
+PRODUCT_PACKAGES += \
+    linker.vendor_ramdisk \
+    resize2fs.vendor_ramdisk \
+    tune2fs.vendor_ramdisk
+endif
+# end: vendor_boot
+
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
