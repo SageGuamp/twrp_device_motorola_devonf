@@ -7,7 +7,7 @@
 
 DEVICE_PATH := device/motorola/devonf
 
-# vendor_boot as recovery?
+# vendor_boot-as-recovery
 ifeq ($(OF_VENDOR_BOOT_RECOVERY),1)
   BOARD_BOOT_HEADER_VERSION := 4
   BOARD_USES_RECOVERY_AS_BOOT := false
