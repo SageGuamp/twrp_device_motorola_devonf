@@ -7,31 +7,6 @@
 #set -o xtrace
 FDEVICE="devonf"
 
-fox_get_target_device() {
-local chkdev=$(echo "$BASH_SOURCE" | grep -w \"$FDEVICE\")
-   if [ -n "$chkdev" ]; then 
-      FOX_BUILD_DEVICE="$FDEVICE"
-   else
-      chkdev=$(set | grep BASH_ARGV | grep -w \"$FDEVICE\")
-      [ -n "$chkdev" ] && FOX_BUILD_DEVICE="$FDEVICE"
-   fi
-}
-
-if [ "$THIS_DEVICE" = "alioth" -o "$THIS_DEVICE" = "munch" ]; then
-	FDEVICE="$THIS_DEVICE"
-	[ -z "$FOX_BUILD_DEVICE" ] && FOX_BUILD_DEVICE="$THIS_DEVICE"
-fi
-
-if [ -z "$1" -a -z "$FOX_BUILD_DEVICE" -a -z "$FDEVICE" ]; then
-   fox_get_target_device
-fi
-
-if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE1"  -o "$FOX_BUILD_DEVICE" = "$FDEVICE2" ]; then
-	if [ -z "$THIS_DEVICE" ]; then
-		echo "ERROR! This script requires bash. Run '/bin/bash' and build again."
-		exit 1
-	fi
-
     export FOX_VANILLA_BUILD=1
     export FOX_ENABLE_APP_MANAGER=1
 	export FOX_VIRTUAL_AB_DEVICE=1
