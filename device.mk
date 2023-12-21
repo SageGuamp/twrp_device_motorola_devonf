@@ -7,7 +7,7 @@
 
 LOCAL_PATH := device/motorola/devonf
 
-# vendor_boot as recovery
+# vendor_boot-as-recovery
 ifeq ($(OF_VENDOR_BOOT_RECOVERY),1)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
@@ -17,7 +17,7 @@ PRODUCT_PACKAGES += \
     resize2fs.vendor_ramdisk \
     tune2fs.vendor_ramdisk
 endif
-# end: vendor_boot
+# end: vendor_boot-as-recovery
 
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
