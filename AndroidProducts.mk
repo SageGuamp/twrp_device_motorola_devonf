@@ -9,6 +9,4 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/twrp_devonf.mk
 
 COMMON_LUNCH_CHOICES := \
-    twrp_devonf-user \
-    twrp_devonf-userdebug \
     twrp_devonf-eng
