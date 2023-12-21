@@ -10,7 +10,7 @@ add_lunch_combo twrp_devonf-userdebug
 add_lunch_combo twrp_devonf-eng
 
 # vendor_boot-as-recovery
-	if [ "$TWRP_VENDOR_BOOT_RECOVERY" = "1" ]; then
-	   export TWRP_RESET_SETTINGS="disabled"
-	   export TWRP_VARIANT="vBaR"
+	if [ "$OF_VENDOR_BOOT_RECOVERY" = "1" ]; then
+	   export FOX_RESET_SETTINGS="disabled"
+	   export FOX_VARIANT="vBaR"
 	fi
