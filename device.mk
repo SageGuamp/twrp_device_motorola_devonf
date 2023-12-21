@@ -47,3 +47,5 @@ PRODUCT_PACKAGES += \
 # Vibrator
 TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 
+# Enable project quotas and casefolding for emulated storage without sdcardfs
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
